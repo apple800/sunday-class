@@ -697,7 +697,12 @@
   .pr-card { display: flex; flex-direction: column; padding: clamp(18px, 2.6vw, 32px); border-radius: 28px; background: #FFF1DC; }
   .pr-card-2 { background: #E6F0FA; }
   .pr-tag { align-self: flex-start; margin: 0 0 8px; padding: 4px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: clamp(18px, 2.2vw, 24px); font-weight: 800; }
-  .pr-title { margin: 0 0 12px; font-size: clamp(36px, 5vw, 64px); font-weight: 900; line-height: 1.15; letter-spacing: -0.01em; }
+  .pr-title { margin: 0 0 12px; font-size: clamp(28px, 3.4vw, 56px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; white-space: nowrap; }
+  /* 제목 글씨를 화면이 아니라 카드 폭에 맞춰서, 어떤 화면에서도 한 줄에 들어가게 함 */
+  @supports (width: 1cqw) {
+    .pr-card { container-type: inline-size; }
+    .pr-title { font-size: min(64px, 8.6cqw); }
+  }
   .pr-video { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 20px; background: var(--ink); }
   .pr-fallback { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; margin: 0; padding: 16px; text-align: center; color: #FFFFFF; font-size: clamp(18px, 2.2vw, 26px); font-weight: 700; line-height: 1.4; word-break: keep-all; }
   .pr-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
